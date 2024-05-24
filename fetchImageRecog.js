@@ -64,6 +64,6 @@ export const fetchImageRecog = async (imgbin, q = "この画像は何ですか")
   if (!text) {
     throw new Error(res);
   }
-  await log({ imagesize: imgbin.length, text });
+  await log({ imagesize: imgbin.length, image: Base64.encode(imgbin), text });
   return text;
 };
