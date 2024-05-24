@@ -48,7 +48,6 @@ export const fetchImageRecog = async (imgbin, q = "この画像は何ですか")
     form.set(name, params[name]);
   }
 
-  //const { headers, body } = await FormDataEncoder.encode(form);
   const opt = {
     method: "POST",
     mode: "cors",
@@ -59,8 +58,6 @@ export const fetchImageRecog = async (imgbin, q = "この画像は何ですか")
     },
     body: JSON.stringify(params),
   };
-  //console.log(opt);
-  //Deno.exit();
 
   const res = await (await fetch(url, opt)).json();
   const text = res?.choices[0]?.message?.content;
